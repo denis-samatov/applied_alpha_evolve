@@ -1,0 +1,116 @@
+🏆 TOP 10 PROGRAMS ANALYSIS
+================================================================================
+
+1. Program ID: 0ea36673-783...
+   Fitness: 1.8826
+   Created: 2025-07-09 04:50:51.658925+00:00
+   Generation: 9
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_meta-llama_llama-3.3-70b-instruct:free
+   Other metrics: call_count: 31.000, binop_count: 22.000, subscript_count: 27.000
+
+2. Program ID: 55374281-ba8...
+   Fitness: 1.8633
+   Created: 2025-07-09 02:51:57.756673+00:00
+   Generation: 8
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_google_gemini-2.0-flash-exp:free
+   Other metrics: call_count: 25.000, binop_count: 21.000, subscript_count: 22.000
+
+3. Program ID: 68f684f0-27d...
+   Fitness: 1.8054
+   Created: 2025-07-09 04:03:04.293419+00:00
+   Generation: 11
+   State: discarded
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_mistralai_devstral-small:free
+   Other metrics: call_count: 26.000, binop_count: 23.000, subscript_count: 22.000
+
+4. Program ID: 94f0527c-59c...
+   Fitness: 1.8001
+   Created: 2025-07-09 03:27:13.605861+00:00
+   Generation: 4
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_mistralai_devstral-small:free
+   Other metrics: call_count: 23.000, binop_count: 27.000, subscript_count: 25.000
+
+5. Program ID: d25cc774-9dc...
+   Fitness: 1.7508
+   Created: 2025-07-08 20:16:35.606281+00:00
+   Generation: 5
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_google_gemini-2.0-flash-exp:free
+   Other metrics: call_count: 18.000, binop_count: 23.000, subscript_count: 28.000
+
+6. Program ID: df498330-dcb...
+   Fitness: 1.7508
+   Created: 2025-07-09 00:50:14.531278+00:00
+   Generation: 7
+   State: discarded
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_mistralai_devstral-small:free
+   Other metrics: call_count: 18.000, binop_count: 23.000, subscript_count: 28.000
+
+7. Program ID: c8fbc692-b3e...
+   Fitness: 1.7508
+   Created: 2025-07-09 01:25:16.465838+00:00
+   Generation: 8
+   State: discarded
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_mistralai_devstral-small:free
+   Other metrics: call_count: 18.000, binop_count: 23.000, subscript_count: 28.000
+
+8. Program ID: 89842974-b72...
+   Fitness: 1.7444
+   Created: 2025-07-09 07:21:20.574560+00:00
+   Generation: 7
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_google_gemini-2.0-flash-exp:free
+   Other metrics: call_count: 24.000, binop_count: 23.000, subscript_count: 24.000
+
+9. Program ID: 7a433fa8-f63...
+   Fitness: 1.6906
+   Created: 2025-07-08 20:15:11.136414+00:00
+   Generation: 3
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_meta-llama_llama-3.3-70b-instruct:free
+   Other metrics: call_count: 21.000, binop_count: 27.000, subscript_count: 20.000
+
+10. Program ID: 0e3912aa-32e...
+   Fitness: 1.6430
+   Created: 2025-07-08 20:12:02.262361+00:00
+   Generation: 2
+   State: evolving
+   Iteration Created: Unknown
+   Parents: 2
+   Mutation: llm_rewrite_mistralai_devstral-small:free
+   Other metrics: call_count: 20.000, binop_count: 25.000, subscript_count: 16.000
+
+
+📈 FITNESS IMPROVEMENT TIMELINE:
+================================================================================
+ 1. Time:   -326.2s | Fitness:   0.9598 | Program: d0641a2b-958...
+ 2. Time:   -326.2s | Fitness:   0.9598 | Program: 2a957387-b72...
+ 3. Time:      0.0s | Fitness:   1.6404 | Program: cbe38899-cbc...
+ 4. Time:  16598.7s | Fitness:   1.6430 | Program: 0e3912aa-32e...
+ 5. Time:  16787.5s | Fitness:   1.6906 | Program: 7a433fa8-f63...
+ 6. Time:  16872.0s | Fitness:   1.7508 | Program: d25cc774-9dc...
+ 7. Time:  33290.9s | Fitness:   1.7508 | Program: df498330-dcb...
+ 8. Time:  35392.9s | Fitness:   1.7508 | Program: c8fbc692-b3e...
+ 9. Time:  40594.2s | Fitness:   1.8633 | Program: 55374281-ba8...
+10. Time:  47728.1s | Fitness:   1.8826 | Program: 0ea36673-783...

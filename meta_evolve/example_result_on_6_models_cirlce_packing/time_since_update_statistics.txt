@@ -1,0 +1,23 @@
+Time Since Last Update Statistics by Program State
+==================================================
+
+DISCARDED:
+  Count: 84 programs
+  Mean time since update: 51468.9s
+  Median time since update: 50125.3s
+  Std dev: 15814.0s
+  Range: 25385.1s - 82471.4s
+
+EVOLVING:
+  Count: 86 programs
+  Mean time since update: 57036.9s
+  Median time since update: 56693.7s
+  Std dev: 16536.4s
+  Range: 25380.6s - 82469.9s
+
+OVERALL STATISTICS:
+  Total programs with valid data: 170
+  Overall mean time since update: 54285.7s
+  Overall median time since update: 54741.5s
+  Overall std dev: 16375.4s
+  Overall range: 25380.6s - 82471.4s

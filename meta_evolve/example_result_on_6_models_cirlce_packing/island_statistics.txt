@@ -1,0 +1,45 @@
+Island Statistics Analysis
+==================================================
+
+OVERALL STATISTICS:
+  Total programs with island data: 111
+  Total programs without island data: 59
+  Unique islands: 4
+
+ISLAND-BY-ISLAND ANALYSIS:
+
+MINIMALISM_ISLAND:
+  Total programs: 32
+  Evolving: 25 (78.1%)
+  Discarded: 7 (21.9%)
+  Other states: 0 (0.0%)
+  Mean fitness: 0.598
+  Best fitness: 1.640
+  Programs with fitness: 32 (100.0%)
+
+STRUCTURE_ISLAND:
+  Total programs: 47
+  Evolving: 36 (76.6%)
+  Discarded: 11 (23.4%)
+  Other states: 0 (0.0%)
+  Mean fitness: 0.493
+  Best fitness: 1.883
+  Programs with fitness: 47 (100.0%)
+
+SUPERB_ISLAND:
+  Total programs: 30
+  Evolving: 23 (76.7%)
+  Discarded: 7 (23.3%)
+  Other states: 0 (0.0%)
+  Mean fitness: -0.281
+  Best fitness: 1.800
+  Programs with fitness: 30 (100.0%)
+
+FITNESS_ISLAND:
+  Total programs: 2
+  Evolving: 2 (100.0%)
+  Discarded: 0 (0.0%)
+  Other states: 0 (0.0%)
+  Mean fitness: 1.807
+  Best fitness: 1.863
+  Programs with fitness: 2 (100.0%)

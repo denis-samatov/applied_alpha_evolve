@@ -1,0 +1,10 @@
+Evolution Analysis Summary
+==================================================
+Total Programs with Fitness: 168
+Total All Programs: 170
+Success Rate: 98.8%
+Best Fitness: 1.8826
+Worst Fitness: -25.6452
+Mean Fitness: 0.4298
+Start Time: 2025-07-08 15:35:23.590081+00:00
+Analysis Time: 2025-07-09 14:24:46.773226+00:00

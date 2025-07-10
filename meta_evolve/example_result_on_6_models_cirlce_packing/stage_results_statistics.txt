@@ -1,0 +1,74 @@
+DAG Stage Results Statistics
+==================================================
+
+OVERALL STATISTICS:
+  Total stage results: 1350
+  Unique programs: 170
+  Unique stages: 8
+  Unique statuses: 3
+
+STAGE-BY-STAGE ANALYSIS:
+
+VALIDATECOMPILES:
+  Total executions: 170
+  completed: 168 (98.8%)
+  failed: 2 (1.2%)
+  Duration: 0.0s mean, 0.0s median
+  Duration range: 0.0s - 0.1s
+  Errors: 2 (1.2%)
+
+COMPUTECOMPLEXITY:
+  Total executions: 170
+  completed: 168 (98.8%)
+  skipped: 2 (1.2%)
+  Duration: 0.0s mean, 0.0s median
+  Duration range: 0.0s - 0.0s
+  Errors: 2 (1.2%)
+
+EXECUTECODE:
+  Total executions: 170
+  completed: 142 (83.5%)
+  failed: 26 (15.3%)
+  skipped: 2 (1.2%)
+  Duration: 4.8s mean, 0.6s median
+  Duration range: 0.0s - 360.0s
+  Errors: 28 (16.5%)
+
+COMPLEXITYMETRICUPDATE:
+  Total executions: 168
+  completed: 168 (100.0%)
+  Duration: 0.0s mean, 0.0s median
+  Duration range: 0.0s - 0.0s
+  Errors: 0 (0.0%)
+
+RUNVALIDATION:
+  Total executions: 168
+  completed: 125 (74.4%)
+  skipped: 26 (15.5%)
+  failed: 17 (10.1%)
+  Duration: 0.3s mean, 0.3s median
+  Duration range: 0.0s - 1.6s
+  Errors: 43 (25.6%)
+
+VALIDATIONMETRICUPDATE:
+  Total executions: 168
+  completed: 168 (100.0%)
+  Duration: 0.0s mean, 0.0s median
+  Duration range: 0.0s - 0.0s
+  Errors: 0 (0.0%)
+
+LLMINSIGHTS:
+  Total executions: 168
+  completed: 121 (72.0%)
+  failed: 47 (28.0%)
+  Duration: 32.4s mean, 7.9s median
+  Duration range: 3.1s - 120.0s
+  Errors: 47 (28.0%)
+
+LINEAGEINSIGHTS:
+  Total executions: 168
+  completed: 117 (69.6%)
+  failed: 51 (30.4%)
+  Duration: 29.3s mean, 16.0s median
+  Duration range: 0.0s - 120.0s
+  Errors: 51 (30.4%)
