@@ -1,94 +1,111 @@
 # Applied AlphaEvolve 🧬
 
-*Проект направления Next-Gen LLMs в рамках Летней школы AIRI 2025*
+*Next-Gen LLMs track project, AIRI Summer School 2025*
 
-[**Отчет**](report.pdf) | [**Презентация**](slides.pdf)
+[**Report**](report.pdf) | [**Slides**](slides.pdf)
 
-## О проекте
+## About the project
 
-Недавние достижения в области автоматизированного поиска решений, примером которых является [фреймворк AlphaEvolve от Google](https://arxiv.org/pdf/2506.13131), подчеркивают эффективность интеграции больших языковых моделей с эволюционным поиском для решения сложных задач оптимизации. AlphaEvolve устанавливает новый стандарт в этой области, используя генерацию кандидатов на основе моделей и строгие механизмы оценки. В данном исследовании мы проводим сравнительный анализ трех опенсорсных эволюционных фреймворков — OpenAlpha_Evolve, OpenEvolve и MetaEvolve — на задаче оптимизации упаковки кругов, используя AlphaEvolve в качестве эталонного бенчмарка. Наш анализ охватывает как архитектуру фреймворков, так и влияние различных языковых моделей. Мы также внедряем передовые методы логирования и визуализации для более глубокого понимания эволюционного процесса и поведения различных моделей. Экспериментальные данные показывают, что MetaEvolve, использующий модели Qwen, достигает наивысшего качества решения среди открытых фреймворков (сумма радиусов = 2.6238), хотя и незначительно уступает эталону AlphaEvolve (2.635). Эта работа закладывает прочную основу для будущих исследований в области эволюционных алгоритмов, применяемых к задачам оптимизации, управляемым LLM.
+Recent advances in automated solution search — exemplified by Google's
+[AlphaEvolve framework](https://arxiv.org/pdf/2506.13131) — highlight the effectiveness
+of combining large language models with evolutionary search to solve hard optimization
+problems. AlphaEvolve sets a new standard in this space by pairing model-based candidate
+generation with rigorous evaluation. In this study, we run a comparative analysis of
+three open-source evolutionary frameworks — OpenAlpha_Evolve, OpenEvolve, and
+MetaEvolve — on a circle-packing optimization task, using AlphaEvolve as the reference
+benchmark. The analysis covers both framework architecture and the effect of different
+LLMs. We also add logging and visualization tooling to better understand the
+evolutionary process and how different models behave. Experimental results show that
+MetaEvolve, using Qwen models, achieves the best solution quality among the open
+frameworks (sum of radii = 2.6238), slightly behind the AlphaEvolve reference (2.635).
+This work lays a foundation for further research into LLM-driven evolutionary
+algorithms for optimization.
 
-## 📁 Исследуемые фреймворки
+## 📁 Frameworks studied
 
-#### [`MetaEvolve`](meta_evolve/) (репозиторий без открытого доступа)
+#### [`MetaEvolve`](meta_evolve/) (closed-source repository)
 
-> Содержит описание и результаты бенчмаркинга, модифицирован код и продолжается работа над улучшением
+> Description and benchmark results included; code has been modified and is still
+> being improved.
 
-- Реализация Multi-Island MAP-Elites алгоритма
-- DAG-based система выполнения программ
-- Асинхронная архитектура с Redis persistence
-- Поддержка качественно-разнообразной оптимизации
+- Multi-Island MAP-Elites algorithm implementation
+- DAG-based program execution system
+- Asynchronous architecture with Redis persistence
+- Quality-diversity optimization support
 
-#### [`OpenEvolve`](open_evolve/) ([репозиторий](https://github.com/codelion/openevolve))
+#### [`OpenEvolve`](open_evolve/) ([upstream repository](https://github.com/codelion/openevolve))
 
-> Содержит описание, результаты бенчмаркинга и код с нашими изменениями
+> Description, benchmark results, and code with our modifications included.
 
-- Реализация концепций AlphaEvolve от Google DeepMind
-- Автоматическая генерация и оптимизация кода
-- Web-интерфейс для мониторинга эволюционного процесса
-- Поддержка множественных LLM провайдеров
+- Implementation of AlphaEvolve concepts from Google DeepMind
+- Automated code generation and optimization
+- Web interface for monitoring the evolutionary process
+- Multi-provider LLM support
 
-#### [`OpenAlpha_Evolve`](open_alpha_envolve/) ([репозиторий](https://github.com/shyamsaktawat/OpenAlpha_Evolve))
+#### [`OpenAlpha_Evolve`](open_alpha_evolve/) ([upstream repository](https://github.com/shyamsaktawat/OpenAlpha_Evolve))
 
-> Содержит описание и результаты бенчмаркинга, не был выбран для дальнейший улучший из-за своих ограничений
+> Description and benchmark results included; not selected for further development due
+> to its limitations.
 
-- Анализ открытой реализации концепций AlphaEvolve
-- Изучение агентной архитектуры и модульного дизайна
-- Оценка производительности и масштабируемости
-- Сравнительное исследование различных подходов к эволюционному программированию
+- Analysis of an open implementation of AlphaEvolve concepts
+- Study of its agentic architecture and modular design
+- Performance and scalability evaluation
+- Comparative study of different approaches to evolutionary programming
 
-## 🎯 Задачи
+## 🎯 Objectives
 
-1. Изучить архитектуру и внутреннюю логику существующих реализаций AlphaEvolve (фреймворков).
+1. Study the architecture and internal logic of existing AlphaEvolve implementations
+   (frameworks).
+2. Test the system with different LLMs — from large proprietary models to smaller
+   open ones — and evaluate its robustness and adaptability. Answer the question of
+   whether this approach is viable for open-source solutions.
+3. Identify possible improvements:
+   - **Conceptual**: better mutation strategies, task-adapted metrics.
+   - **Visual**: clearer visualization of the evolutionary process.
+   - **Technical**: richer logging, solution-trajectory tracking.
 
-2. Протестировать работу системы с различными LLM - от проприетарных больших до открытых маломощных, оценить её устойчивость и адаптируемость. Ответить на вопрос применимости такого подхода для опенсорс решений.
+## 🛠️ Tech stack
 
-3. Продумать возможные улучшения:
-   - Концептуальные: улучшение стратегии мутаций, адаптация метрик к задаче
-   - Визуальные: более наглядная визуализация процесса эволюции
-   - Технические: расширение логирования, отслеживание траектории решений
+### Core technologies
+- **Python 3.8+** — primary language
+- **AsyncIO** — asynchronous programming
+- **Redis** — high-performance state storage
+- **Docker** — containerization and isolation
 
+### Frameworks and libraries
+- **Pydantic** — data validation and typing
+- **Loguru** — structured logging
+- **NumPy** — numerical computation
+- **FastAPI** — web interfaces and APIs
 
-## 🛠️ Технологический стек фреймворков
+### LLM integrations
+- **Proprietary LLMs via API** — OpenAI, Mistral, Gemini
+- **Local LLMs via vLLM** — Qwen, Llama, DeepSeek
 
-### Основные технологии
-- **Python 3.8+** - основной язык разработки
-- **AsyncIO** - асинхронное программирование
-- **Redis** - высокопроизводительное хранение состояния
-- **Docker** - контейнеризация и изоляция
+## 🚀 Running it (OpenEvolve example)
 
-### Фреймворки и библиотеки
-- **Pydantic** - валидация данных и типизация
-- **Loguru** - структурированное логирование
-- **NumPy** - численные вычисления
-- **FastAPI** - веб-интерфейсы и API
-
-### LLM интеграции
-- **Proprietary LLM via API** - OpenAI, Mistral, Gemini
-- **Local LLMs via vLLMs** - Qwen, Llama, DeepSeek
-
-## 🚀 Запуск (на примере OpenEvolve)
-
-Системные зависимости
+System requirements
 - Python 3.8+
-- Docker (опционально)
-- vLLM (для локального запуска моделей)
+- Docker (optional)
+- vLLM (for running models locally)
 
-LLM API доступ
-- OpenAI API ключ
-- Mistral API ключ (опционально)
+LLM API access
+- OpenAI API key
+- Mistral API key (optional)
 
 ```bash
-# Клонирование репозитория
+# Clone the repository
+git clone https://github.com/denis-samatov/applied_alpha_evolve.git
+cd applied_alpha_evolve
 
-# Настройка OpenEvolve  
-cd airi_project/openevolve
+# Set up OpenEvolve
+cd open_evolve
 pip install -e .
 
-# Настроить конфигурацию в 
+# Configure
 # examples/circle_packing/config_phase_1.yaml
 # examples/circle_packing/config_phase_2.yaml
 
-# Запуск примера
+# Run the example
 python examples/circle_packing/run_evolution.py
 ```
