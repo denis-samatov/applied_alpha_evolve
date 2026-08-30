@@ -1,26 +1,26 @@
-# Технический анализ OpenEvolve 🧬
+# Technical Analysis of OpenEvolve 🧬
 
-## Обзор
+## Overview
 
-Данный отчет представляет комплексный анализ проекта **OpenEvolve** - открытой реализации системы AlphaEvolve, описанной в исследовании Google DeepMind "AlphaEvolve: A coding agent for scientific and algorithmic discovery" (2025). Проект представляет собой эволюционного агента для программирования, использующего большие языковые модели для оптимизации кода через итеративный процесс.
+This report presents a comprehensive analysis of **OpenEvolve** — an open-source implementation of the AlphaEvolve system described in Google DeepMind's research paper "AlphaEvolve: A coding agent for scientific and algorithmic discovery" (2025). The project is an evolutionary coding agent that uses large language models to optimize code through an iterative process.
 
 ![OpenEvolve Logo](images/OpenEvolve%20Logo.png)
 
-## 🔍 Архитектурный анализ
+## 🔍 Architectural analysis
 
-OpenEvolve реализует эволюционный подход с асинхронным пайплайном, оптимизированным для максимальной пропускной способности:
+OpenEvolve implements an evolutionary approach with an asynchronous pipeline optimized for maximum throughput:
 
 ![OpenEvolve Architecture](images/OpenEvolve%20Architecture.png)
 
-### Основные компоненты системы
+### Main system components
 
-1. **Prompt Sampler** - создание контекстно-богатых промптов с историей программ и их оценками
-2. **LLM Ensemble** - генерация модификаций кода через ансамбль языковых моделей
-3. **Evaluator Pool** - параллельное тестирование и оценка сгенерированных программ
-4. **Program Database** - хранение программ и метрик для направления будущей эволюции
-5. **Controller** - оркестрация взаимодействий между компонентами
+1. **Prompt Sampler** - builds context-rich prompts from program history and their scores
+2. **LLM Ensemble** - generates code modifications through an ensemble of language models
+3. **Evaluator Pool** - runs generated programs in parallel and scores them
+4. **Program Database** - stores programs and metrics to steer future evolution
+5. **Controller** - orchestrates the interactions between components
 
-### Ключевые архитектурные решения
+### Key architectural decisions
 
 ```mermaid
 graph LR
@@ -33,99 +33,99 @@ graph LR
     E --> D
 ```
 
-## ✅ Преимущества проекта
+## ✅ Strengths of the project
 
-### Степень технической проработки
-- **Асинхронная архитектура**: оптимизированный пайплайн для максимальной пропускной способности
-- **Модульный дизайн**: легкая замена отдельных компонентов (LLM, база данных, стратегии оценки)
-- **Поддержка множественных языков**: Python, Rust, R с возможностью расширения
-- **MAP-Elites интеграция**: quality-diversity оптимизация с островной моделью эволюции
+### Degree of technical maturity
+- **Asynchronous architecture**: a pipeline optimized for maximum throughput
+- **Modular design**: individual components (LLM, database, evaluation strategies) can be swapped out easily
+- **Support for multiple languages**: Python, Rust, R, with room to extend further
+- **MAP-Elites integration**: quality-diversity optimization with an island-based evolution model
 
-### Практическая применимость
-- **Checkpoint система**: автоматическое сохранение состояния с возможностью возобновления
-- **Веб-визуализация**: интерактивный интерфейс для отслеживания эволюционного дерева
-- **Artifacts channel**: захват ошибок компиляции и профилирования для улучшения обратной связи
-- **Готовые примеры**: от математической оптимизации до научных вычислений
+### Practical applicability
+- **Checkpoint system**: automatic state saving with the ability to resume
+- **Web visualization**: an interactive interface for tracking the evolutionary tree
+- **Artifacts channel**: captures compilation errors and profiling data to improve feedback
+- **Ready-made examples**: from mathematical optimization to scientific computing
 
-### Гибкость и расширяемость
-- **LLM агностик**: поддержка OpenAI-совместимых API любых провайдеров
-- **Конфигурируемость**: детальная настройка через YAML файлы
-- **Docker интеграция**: изолированное выполнение и развертывание
-- **Каскадная оценка**: многоступенчатое тестирование для фильтрации решений
+### Flexibility and extensibility
+- **LLM-agnostic**: supports OpenAI-compatible APIs from any provider
+- **Configurability**: detailed setup via YAML files
+- **Docker integration**: isolated execution and deployment
+- **Cascade evaluation**: multi-stage testing to filter out bad solutions
 
-## ❌ Недостатки и ограничения
+## ❌ Weaknesses and limitations
 
-### Сложность настройки и использования
-- **Высокий порог входа**: требует понимания эволюционных алгоритмов и LLM
-- **Зависимости**: множественные требования (Docker, различные Python пакеты)
-- **Конфигурационная сложность**: более 50 параметров в конфигурационных файлах
-- **API управление**: необходимость настройки ключей для различных LLM провайдеров
+### Setup and usage complexity
+- **High barrier to entry**: requires an understanding of evolutionary algorithms and LLMs
+- **Dependencies**: multiple requirements (Docker, various Python packages)
+- **Configuration complexity**: more than 50 parameters across the config files
+- **API management**: keys need to be configured for various LLM providers
 
-### Ресурсные требования
-- **Вычислительная интенсивность**: высокое потребление CPU при параллельной оценке
-- **Стоимость LLM**: использование коммерческих API может быть дорогостоящим
-- **Память**: требования к RAM растут с размером популяции
-- **Время выполнения**: эксперименты могут занимать часы для сложных задач
+### Resource requirements
+- **Computational intensity**: high CPU usage during parallel evaluation
+- **LLM cost**: using commercial APIs can get expensive
+- **Memory**: RAM requirements grow with population size
+- **Runtime**: experiments can take hours for complex tasks
 
-### Ограничения масштабируемости
-- **Одиночная машина**: отсутствие встроенной распределенной обработки
-- **Синхронизация**: узкие места при большом количестве параллельных оценок
-- **Хранение**: рост размера базы данных программ может влиять на производительность
+### Scalability limitations
+- **Single machine**: no built-in distributed processing
+- **Synchronization**: bottlenecks appear with a large number of parallel evaluations
+- **Storage**: the growing program database can affect performance
 
-### Вопросы надежности
-- **Детерминизм**: сложность воспроизведения результатов из-за LLM стохастичности
-- **Безопасность**: выполнение генерируемого кода требует изоляции
-- **Отладка**: диагностика проблем в эволюционном процессе может быть сложной
+### Reliability considerations
+- **Determinism**: reproducing results is hard due to LLM stochasticity
+- **Security**: running generated code requires isolation
+- **Debugging**: diagnosing problems in the evolutionary process can be difficult
 
-## 🚀 Руководство по развертыванию
+## 🚀 Deployment guide
 
-### Системные требования
+### System requirements
 
 ```bash
-# Базовые требования
+# Base requirements
 Python 3.9+
 Docker Desktop/Engine
 Git
 
-# Рекомендуемые ресурсы
-CPU: 8+ ядер
+# Recommended resources
+CPU: 8+ cores
 RAM: 16+ GB
-Диск: 50+ GB свободного места
+Disk: 50+ GB free space
 ```
 
-### Процесс установки
+### Installation process
 
 ```bash
-# 1. Клонирование репозитория
+# 1. Clone the repository
 git clone https://github.com/codelion/openevolve.git
 cd openevolve
 
-# 2. Установка в режиме разработки
+# 2. Install in development mode
 pip install -e .
 
-# 3. Настройка API ключей
+# 3. Configure API keys
 export OPENAI_API_KEY="your_api_key"
-# Или настройка через config.yaml для других провайдеров
+# Or configure other providers via config.yaml
 ```
 
-### Базовые сценарии запуска
+### Basic run scenarios
 
 ```bash
-# Минимизация функций
+# Function minimization
 python openevolve-run.py \
     examples/function_minimization/initial_program.py \
     examples/function_minimization/evaluator.py \
     --config examples/function_minimization/config.yaml \
     --iterations 100
 
-# Упаковка кругов (воспроизведение результатов AlphaEvolve)
+# Circle packing (reproducing AlphaEvolve results)
 python openevolve-run.py \
     examples/circle_packing/initial_program.py \
     examples/circle_packing/evaluator.py \
     --config examples/circle_packing/config.yaml \
     --iterations 800
 
-# Символьная регрессия
+# Symbolic regression
 python openevolve-run.py \
     examples/symbolic_regression/initial_program.py \
     examples/symbolic_regression/evaluator.py \
@@ -133,64 +133,64 @@ python openevolve-run.py \
     --iterations 200
 ```
 
-### Работа с чекпоинтами
+### Working with checkpoints
 
 ```bash
-# Возобновление с чекпоинта
+# Resume from a checkpoint
 python openevolve-run.py \
     initial_program.py evaluator.py \
     --checkpoint openevolve_output/checkpoints/checkpoint_50 \
     --iterations 50
 
-# Сравнение результатов
+# Compare results
 diff -u checkpoints/checkpoint_10/best_program.py \
         checkpoints/checkpoint_50/best_program.py
 ```
 
-### Визуализация процесса эволюции
+### Visualizing the evolution process
 
 ```bash
-# Запуск веб-визуализатора
+# Launch the web visualizer
 pip install -r scripts/requirements.txt
 python scripts/visualizer.py
 
-# Открыть http://127.0.0.1:8080
+# Open http://127.0.0.1:8080
 ```
 
 ![OpenEvolve Visualizer](images/OpenEvolve%20Visualizer.png)
 
-## 📊 Результаты тестирования
+## 📊 Test results
 
-### Производительность системы
-- **Скорость эволюции**: 10-50 итераций в минуту в зависимости от сложности
-- **Пропускная способность**: до 100+ программ в час при параллельной оценке
-- **Эффективность памяти**: 200-500 MB для популяций 100-500 программ
-- **Конвергенция**: заметные улучшения через 20-50 поколений
+### System performance
+- **Evolution speed**: 10-50 iterations per minute, depending on complexity
+- **Throughput**: up to 100+ programs per hour under parallel evaluation
+- **Memory efficiency**: 200-500 MB for populations of 100-500 programs
+- **Convergence**: noticeable improvements after 20-50 generations
 
-### Качество решений
-- **Circle Packing (n=26)**: достижение результата AlphaEvolve (оптимальная упаковка)
-- **Function Minimization**: эволюция от случайного поиска к simulated annealing
-- **Symbolic Regression**: конкурентные результаты на LLM-SRBench
-- **Code Quality**: 70-85% сгенерированного кода проходит синтаксические проверки
+### Solution quality
+- **Circle Packing (n=26)**: matches the AlphaEvolve result (optimal packing)
+- **Function Minimization**: evolves from random search to simulated annealing
+- **Symbolic Regression**: competitive results on LLM-SRBench
+- **Code Quality**: 70-85% of generated code passes syntax checks
 
-### Сравнительный анализ
-- **vs Традиционные ГА**: превосходство в сложных задачах программирования
-- **vs Ручная оптимизация**: автоматизация экспертных знаний
-- **vs Другие LLM-подходы**: более систематический эволюционный процесс
+### Comparative analysis
+- **vs traditional GAs**: superior on complex programming tasks
+- **vs manual optimization**: automates expert knowledge
+- **vs other LLM-based approaches**: a more systematic evolutionary process
 
-## 💡 Создание пользовательских задач
+## 💡 Creating custom tasks
 
-### Структура задачи
+### Task structure
 
 ```python
 # EVOLVE-BLOCK-START
 def target_function(parameters):
-    """Функция для эволюции"""
-    # Код, который будет улучшаться
+    """Function to be evolved"""
+    # Code that will be improved
     return result
 # EVOLVE-BLOCK-END
 
-# Функция оценки
+# Evaluation function
 def evaluate(program_path):
     return {
         "score": performance_metric,
@@ -199,7 +199,7 @@ def evaluate(program_path):
     }
 ```
 
-### Конфигурация эволюции
+### Evolution configuration
 
 ```yaml
 max_iterations: 500
@@ -224,59 +224,59 @@ evaluator:
   cascade_evaluation: true
 ```
 
-## 🎯 Рекомендации по использованию
+## 🎯 Usage recommendations
 
-### Оптимальные практики
-1. **Начинать с малых популяций** (50-100 программ) для отладки
-2. **Использовать каскадную оценку** для фильтрации некорректных решений
-3. **Настраивать artifacts channel** для улучшения обратной связи
-4. **Мониторить ресурсы** при длительных экспериментах
+### Best practices
+1. **Start with small populations** (50-100 programs) while debugging
+2. **Use cascade evaluation** to filter out incorrect solutions
+3. **Configure the artifacts channel** to improve feedback quality
+4. **Monitor resources** during long-running experiments
 
-### Настройка производительности
-- **Population size**: 100-500 в зависимости от ресурсов
-- **Islands**: 3-8 для баланса разнообразия и сходимости
-- **Temperature**: 0.3-0.9 для контроля креативности LLM
-- **Parallel evaluations**: 4-16 в зависимости от CPU
+### Performance tuning
+- **Population size**: 100-500, depending on available resources
+- **Islands**: 3-8 to balance diversity and convergence
+- **Temperature**: 0.3-0.9 to control LLM creativity
+- **Parallel evaluations**: 4-16, depending on CPU
 
-## 🔮 Перспективы развития
+## 🔮 Future outlook
 
-### Текущие ограничения для улучшения
-- Добавление поддержки распределенных вычислений
-- Улучшение воспроизводимости результатов
-- Оптимизация использования LLM API для снижения затрат
-- Расширение языковой поддержки
+### Current limitations worth improving
+- Add support for distributed computing
+- Improve reproducibility of results
+- Optimize LLM API usage to reduce cost
+- Expand language support
 
-### Потенциальные применения
-- Автоматическая оптимизация алгоритмов
-- Научные открытия через символьную регрессию
-- Генерация высокопроизводительного кода
-- Образовательные инструменты для программирования
+### Potential applications
+- Automatic algorithm optimization
+- Scientific discovery through symbolic regression
+- High-performance code generation
+- Educational tools for programming
 
-## 📋 Заключение
+## 📋 Conclusion
 
-OpenEvolve представляет собой зрелую и функциональную реализацию концепций эволюционного программирования с использованием LLM. Проект демонстрирует практическую применимость автоматической генерации и оптимизации кода для реальных задач.
+OpenEvolve is a mature, functional implementation of evolutionary programming concepts built on LLMs. The project demonstrates the practical viability of automated code generation and optimization for real-world tasks.
 
-### Основные выводы
+### Key takeaways
 
-**Сильные стороны:**
-- Техническая зрелость и модульная архитектура
-- Доказанная эффективность на сложных задачах
-- Обширная экосистема примеров и документации
-- Активное сообщество разработчиков (3.1k звезд, 405 форков)
+**Strengths:**
+- Technical maturity and modular architecture
+- Proven effectiveness on complex tasks
+- An extensive ecosystem of examples and documentation
+- An active developer community (3.1k stars, 405 forks)
 
-**Области для улучшения:**
-- Упрощение процесса настройки и развертывания
-- Оптимизация ресурсопотребления
-- Улучшение воспроизводимости результатов
-- Расширение возможностей распределенной обработки
+**Areas for improvement:**
+- Simplifying the setup and deployment process
+- Optimizing resource consumption
+- Improving reproducibility of results
+- Expanding distributed-processing capabilities
 
-Проект особенно ценен для исследователей и инженеров, работающих в области автоматизации программирования, научных вычислений и оптимизации алгоритмов. Несмотря на сложность настройки, OpenEvolve предоставляет мощный инструментарий для решения задач, требующих творческого подхода к программированию.
+The project is especially valuable for researchers and engineers working in program-automation, scientific computing, and algorithm optimization. Despite its setup complexity, OpenEvolve provides a powerful toolkit for problems that call for a creative approach to programming.
 
-## 🔗 Исходный код
+## 🔗 Source code
 
-Проект доступен на GitHub:
+The project is available on GitHub:
 **https://github.com/codelion/openevolve**
 
 ---
 
-*Отчет подготовлен на основе анализа исходного кода, документации и практического тестирования системы на различных задачах оптимизации.* 
+*This report was prepared based on an analysis of the source code, documentation, and hands-on testing of the system across a range of optimization tasks.*

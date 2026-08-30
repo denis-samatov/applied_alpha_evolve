@@ -1,26 +1,26 @@
-# Технический анализ OpenAlpha_Evolve 🧬
+# Technical Analysis of OpenAlpha_Evolve 🧬
 
-## Обзор
+## Overview
 
-Данный отчет представляет комплексный анализ проекта **OpenAlpha_Evolve** - открытой реализации концепций из исследования AlphaEvolve от Google DeepMind. Проект представляет собой интеллектуальную систему, которая итеративно создает, тестирует и улучшает код с использованием больших языковых моделей.
+This report presents a comprehensive analysis of **OpenAlpha_Evolve** — an open-source implementation of concepts from Google DeepMind's AlphaEvolve research. The project is an intelligent system that iteratively generates, tests, and improves code using large language models.
 
 ![openalpha_evolve_workflow](https://github.com/user-attachments/assets/9d4709ad-0072-44ae-bbb5-7eea1c5fa08c)
 
-## 🔍 Обзор архитектуры
+## 🔍 Architecture overview
 
-OpenAlpha_Evolve реализует модульную агентную архитектуру для организации эволюционного процесса:
+OpenAlpha_Evolve implements a modular agent-based architecture to organize the evolutionary process:
 
-### Основные компоненты системы
+### Main system components
 
-1. **Task Definition** - определение алгоритмических задач с примерами входных и выходных данных
-2. **PromptDesignerAgent** - создание интеллектуальных промптов для LLM
-3. **CodeGeneratorAgent** - генерация Python кода с использованием LLM (настроен на Gemini)
-4. **EvaluatorAgent** - тестирование сгенерированного кода в изолированной среде
-5. **DatabaseAgent** - хранение всех программ и их метрик (в памяти)
-6. **SelectionControllerAgent** - реализация принципа "выживания сильнейшего"
-7. **TaskManagerAgent** - оркестрация всего эволюционного процесса
+1. **Task Definition** - defines algorithmic tasks with example inputs and outputs
+2. **PromptDesignerAgent** - builds intelligent prompts for the LLM
+3. **CodeGeneratorAgent** - generates Python code using an LLM (configured for Gemini)
+4. **EvaluatorAgent** - tests generated code in an isolated environment
+5. **DatabaseAgent** - stores all programs and their metrics (in memory)
+6. **SelectionControllerAgent** - implements a "survival of the fittest" selection principle
+7. **TaskManagerAgent** - orchestrates the entire evolutionary process
 
-### Эволюционный цикл
+### The evolutionary cycle
 
 ```mermaid
 graph TD
@@ -33,119 +33,119 @@ graph TD
     G --> B
 ```
 
-## ✅ Преимущества проекта
+## ✅ Strengths of the project
 
-### Степень технической проработки
-- **Модульная архитектура**: четкое разделение ответственности между агентами
-- **LLM-агностик подход**: поддержка множественных провайдеров через LiteLLM
-- **Безопасность**: изолированное выполнение кода в Docker контейнерах
-- **Гибкость**: простая замена отдельных компонентов системы
+### Degree of technical maturity
+- **Modular architecture**: clear separation of responsibilities between agents
+- **LLM-agnostic approach**: supports multiple providers via LiteLLM
+- **Security**: isolated code execution in Docker containers
+- **Flexibility**: individual system components can be swapped out easily
 
-### Практическая применимость
-- **Diff-based мутации**: целенаправленные модификации кода
-- **Детальное логирование**: полная трассировка эволюционного процесса
-- **Web интерфейс**: Gradio UI для интерактивного взаимодействия
-- **Готовые примеры**: включая алгоритм Дейкстры
+### Practical applicability
+- **Diff-based mutations**: targeted code modifications
+- **Detailed logging**: full traceability of the evolutionary process
+- **Web interface**: a Gradio UI for interactive use
+- **Ready-made examples**: including Dijkstra's algorithm
 
-### Простота использования
-- **YAML конфигурация**: декларативное описание задач
-- **Автоматизированная оценка**: синтаксическая проверка и функциональное тестирование
-- **Гибкие настройки**: конфигурация через `config/settings.py` и `.env`
+### Ease of use
+- **YAML configuration**: declarative task descriptions
+- **Automated evaluation**: syntax checking and functional testing
+- **Flexible settings**: configuration via `config/settings.py` and `.env`
 
-## ❌ Недостатки и ограничения
+## ❌ Weaknesses and limitations
 
-### Архитектурные ограничения
-- **In-memory база данных**: потеря данных при перезапуске
-- **Отсутствие персистентности**: нет долгосрочного хранения эволюционной истории
-- **Масштабируемость**: ограничения при работе с большими популяциями
-- **Единственный язык**: поддержка только Python для эволюции
+### Architectural limitations
+- **In-memory database**: data is lost on restart
+- **No persistence**: no long-term storage of evolutionary history
+- **Scalability**: constraints when working with large populations
+- **Single language**: only Python is supported for evolution
 
-### Операционные сложности
-- **Зависимости**: требует Docker, множественные Python пакеты
-- **Настройка API**: необходимость конфигурации ключей для различных LLM провайдеров
-- **Ресурсоемкость**: высокое потребление вычислительных ресурсов
-- **Стоимость**: использование коммерческих LLM API
+### Operational complexity
+- **Dependencies**: requires Docker and multiple Python packages
+- **API setup**: keys need to be configured for various LLM providers
+- **Resource intensity**: high computational resource usage
+- **Cost**: relies on commercial LLM APIs
 
-### Безопасность и надежность
-- **Выполнение кода**: потенциальные риски даже при изоляции
-- **Отладка**: сложность диагностики проблем в эволюционном процессе
-- **Воспроизводимость**: отсутствие детерминистичности в результатах
+### Security and reliability
+- **Code execution**: potential risks even with isolation in place
+- **Debugging**: diagnosing problems in the evolutionary process is difficult
+- **Reproducibility**: results lack determinism
 
-## 🚀 Руководство по запуску
+## 🚀 Setup guide
 
-### Предварительные требования
+### Prerequisites
 
 ```bash
-# Системные зависимости
+# System dependencies
 Python 3.10+
 Docker Desktop/Engine
 Git
 
-# Установка Docker (обязательно)
+# Installing Docker (required)
 # macOS: Download from docker.com
 # Ubuntu: sudo apt-get install docker.io
 # Windows: Docker Desktop
 ```
 
-### Установка и настройка
+### Installation and setup
 
 ```bash
-# 1. Клонирование репозитория
+# 1. Clone the repository
 git clone https://github.com/shyamsaktawat/OpenAlpha_Evolve.git
 cd OpenAlpha_Evolve
 
-# 2. Создание виртуальной среды
+# 2. Create a virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# 3. Установка зависимостей
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Настройка переменных окружения
+# 4. Configure environment variables
 cp .env_example .env
-# Отредактируйте .env файл с вашими API ключами
+# Edit the .env file with your API keys
 ```
 
-### Конфигурация LLM провайдеров
+### Configuring LLM providers
 
 ```bash
-# Для Google Cloud (рекомендуется)
+# For Google Cloud (recommended)
 # Option 1: ADC
 gcloud auth application-default login
 
 # Option 2: API Key
 echo 'GEMINI_API_KEY="your_api_key"' >> .env
 
-# Для других провайдеров
+# For other providers
 echo 'OPENAI_API_KEY="your_openai_key"' >> .env
 echo 'ANTHROPIC_API_KEY="your_anthropic_key"' >> .env
 ```
 
-### Запуск примеров
+### Running the examples
 
 ```bash
-# Базовый пример (алгоритм Дейкстры)
+# Basic example (Dijkstra's algorithm)
 python -m main examples/shortest_path.yaml
 
-# Веб-интерфейс
+# Web interface
 python app.py
-# Откройте http://127.0.0.1:7860
+# Open http://127.0.0.1:7860
 ```
 
-## 💡 Создание собственных задач
+## 💡 Creating your own tasks
 
-### YAML формат (рекомендуется)
+### YAML format (recommended)
 
 ```yaml
 task_id: "my_algorithm"
 task_description: |
-  Детальное описание алгоритмической задачи.
-  Укажите имя функции, ожидаемое поведение и ограничения.
+  A detailed description of the algorithmic task.
+  Specify the function name, expected behavior, and constraints.
 function_name: "my_function"
 allowed_imports: ["math", "itertools"]
 
 tests:
-  - description: "Базовые тесты"
+  - description: "Basic tests"
     name: "Basic functionality"
     test_cases:
       - input: [1, 2, 3]
@@ -156,14 +156,14 @@ tests:
               return isinstance(result, int) and result > 25
 ```
 
-### Python формат (Legacy)
+### Python format (Legacy)
 
 ```python
 from core.task_definition import TaskDefinition
 
 task = TaskDefinition(
     id="my_task",
-    description="Описание задачи",
+    description="Task description",
     function_name_to_evolve="target_function",
     input_output_examples=[
         {"input": [1, 2], "output": 3},
@@ -172,39 +172,39 @@ task = TaskDefinition(
 )
 ```
 
-## 📊 Результаты тестирования
+## 📊 Test results
 
-### Производительность системы
-- **Время генерации**: 2-5 секунд на итерацию
-- **Память**: 100-500 MB в зависимости от размера популяции
-- **Успешность**: 60-80% сгенерированного кода проходит синтаксическую проверку
+### System performance
+- **Generation time**: 2-5 seconds per iteration
+- **Memory**: 100-500 MB depending on population size
+- **Success rate**: 60-80% of generated code passes syntax checking
 
-### Качество решений
-- **Конвергенция**: заметное улучшение через 10-20 поколений
-- **Разнообразие**: эффективное поддержание генетического разнообразия
-- **Сложность**: способность генерировать нетривиальные алгоритмы
+### Solution quality
+- **Convergence**: noticeable improvement after 10-20 generations
+- **Diversity**: effectively maintains genetic diversity
+- **Complexity**: capable of generating non-trivial algorithms
 
-## 📋 Заключение
+## 📋 Conclusion
 
-OpenAlpha_Evolve представляет собой интересную и функциональную реализацию концепций эволюционного программирования. Проект демонстрирует осуществимость автоматической генерации и улучшения алгоритмов с использованием современных LLM.
+OpenAlpha_Evolve is an interesting and functional implementation of evolutionary programming concepts. The project demonstrates the feasibility of automated algorithm generation and improvement using modern LLMs.
 
-### Основные выводы:
+### Key takeaways:
 
-**Сильные стороны:**
-- Модульная и расширяемая архитектура
-- Практическая применимость для реальных задач
-- Хорошая документация и примеры использования
-- Активная поддержка сообщества
+**Strengths:**
+- A modular, extensible architecture
+- Practical applicability to real-world tasks
+- Good documentation and usage examples
+- Active community support
 
-**Области для улучшения:**
-- Надежность и персистентность данных
-- Масштабируемость для больших задач
-- Поддержка множественных языков программирования
-- Оптимизация использования ресурсов
+**Areas for improvement:**
+- Data reliability and persistence
+- Scalability for larger tasks
+- Support for multiple programming languages
+- Resource-usage optimization
 
-Проект представляет интерес для исследователей и разработчиков, работающих в области ИИ, эволюционных алгоритмов и автоматического программирования.
+The project is of interest to researchers and developers working in AI, evolutionary algorithms, and automated programming.
 
-## 🔗 Исходный код
+## 🔗 Source code
 
-Проект доступен на GitHub:
+The project is available on GitHub:
 **https://github.com/shyamsaktawat/OpenAlpha_Evolve**
