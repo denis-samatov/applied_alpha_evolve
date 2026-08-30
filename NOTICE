@@ -1,0 +1,13 @@
+This repository mixes original work with vendored third-party code under
+different licenses. The root LICENSE (MIT) covers this project's own analysis,
+report, slides, and the `meta_evolve/` and `open_alpha_evolve/` directories
+(descriptions and benchmark results only — no vendored code). It does NOT
+cover `open_evolve/`.
+
+open_evolve/
+  Upstream:  https://github.com/codelion/openevolve
+  License:   Apache License 2.0 (see open_evolve/LICENSE)
+  Status:    vendored with modifications by the authors of this repository
+
+Redistribution of open_evolve/ must comply with the Apache License 2.0,
+including retention of its copyright and license notices.

@@ -109,3 +109,17 @@ pip install -e .
 # Run the example
 python examples/circle_packing/run_evolution.py
 ```
+
+## Licensing
+
+This repository mixes licenses:
+
+- The root [`LICENSE`](LICENSE) (MIT) covers this project's own analysis, `report.pdf`,
+  `slides.pdf`, and the `meta_evolve/` and `open_alpha_evolve/` directories (descriptions
+  and benchmark results — neither vendors code from its upstream).
+- [`open_evolve/`](open_evolve/) is vendored from [codelion/openevolve](https://github.com/codelion/openevolve)
+  with our modifications, and is licensed under **Apache-2.0** — see
+  [`open_evolve/LICENSE`](open_evolve/LICENSE). The root MIT license does not apply to this
+  directory.
+
+See [`NOTICE`](NOTICE) for the full breakdown.
