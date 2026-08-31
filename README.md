@@ -1,5 +1,7 @@
 # Applied AlphaEvolve 🧬
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 *Next-Gen LLMs track project, AIRI Summer School 2025*
 
 [**Report**](report.pdf) | [**Slides**](slides.pdf)
