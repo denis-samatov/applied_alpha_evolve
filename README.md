@@ -4,6 +4,10 @@
 
 *Next-Gen LLMs track project, AIRI Summer School 2025*
 
+A comparative study of three open-source LLM-driven evolutionary search frameworks —
+OpenAlpha_Evolve, OpenEvolve, and MetaEvolve — benchmarked against Google's AlphaEvolve
+on a circle-packing optimization task.
+
 [**Report**](report.pdf) | [**Slides**](slides.pdf)
 
 ## About the project
