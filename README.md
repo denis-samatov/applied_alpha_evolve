@@ -101,8 +101,8 @@ LLM API access
 
 ```bash
 # Clone the repository
-git clone https://github.com/denis-samatov/applied_alpha_evolve.git
-cd applied_alpha_evolve
+git clone https://github.com/denis-samatov/applied-alpha-evolve.git
+cd applied-alpha-evolve
 
 # Set up OpenEvolve
 cd open_evolve
